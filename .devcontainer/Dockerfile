@@ -17,7 +17,6 @@ RUN apt-get install -y libicu[0-9][0-9]
 RUN mkdir /workspace
 WORKDIR /workspace
 
-COPY .devcontainer/requirements.txt.temp requirements.txt* /workspace/
 RUN if [ -f "requirements.txt" ]; then pip install -r requirements.txt && rm requirements.txt*; fi
 
 # Clean up
