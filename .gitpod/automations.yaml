@@ -1,0 +1,20 @@
+# defines automation tasks (optional)
+tasks:
+    populateDB:
+        # Name is a required, human readable string.
+        name: Add test data to the database
+        description: makes post requests to the web server that populate the database with data
+        triggeredBy:
+            - manual
+        command: |
+          curl 'http://localhost:8000/submit' \
+          -H 'Accept: text/html' \
+          -H 'Cache-Control: no-cache' \
+          -H 'Connection: keep-alive' \
+          -H 'Content-Type: application/x-www-form-urlencoded' \
+          --data-raw 'text=Lorem+Ipsum'
+          curl 'http://localhost:8000/submit' \
+          -H 'Accept: text/html' \
+          -H 'Cache-Control: no-cache' \
+          -H 'Content-Type: application/x-www-form-urlencoded' \
+          --data-raw 'text=Some+More+Data'
